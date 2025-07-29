@@ -60,3 +60,13 @@ class Player(models.Model):
         return f"{self.diary_id} -> Quote {self.quote.id} - Part {self.quote_part}"
     
     
+# DB model only for frontend
+# models_frontend.py
+class FrontendQuotePair(models.Model):
+    diary_number = models.CharField(max_length=20)
+    quote_id = models.IntegerField()
+    is_verified = models.BooleanField(default=False)
+
+    class Meta:
+        managed = False
+        db_table = 'your_frontend_table_name'
