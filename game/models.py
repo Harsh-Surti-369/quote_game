@@ -40,14 +40,6 @@ class Match(models.Model):
         return f"Match: {self.diary_1.diary_number} + {self.diary_2.diary_number} - Quote #{self.quote.id}"
 
 
-class GridFlipLog(models.Model):
-    flip_number = models.PositiveIntegerField()
-    is_status = models.BooleanField(default=False)
-    flipped_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"Flip #{self.flip_number} at {self.flipped_at.strftime('%Y-%m-%d %H:%M:%S')}"
-
 
 class Player(models.Model):
     diary_id = models.CharField(max_length=20, unique=True)
@@ -58,6 +50,16 @@ class Player(models.Model):
   
     def __str__(self):
         return f"{self.diary_id} -> Quote {self.quote.id} - Part {self.quote_part}"
+
+class GridFlipLog(models.Model):
+    player1 = models.CharField(max_length=50)
+    player2 = models.CharField(max_length=50)
+    flip_number = models.IntegerField()
+    is_status = models.BooleanField(default=False)
+ #flipped_at = models.DateTimeField(auto_now_add=True)
+
+    # def __str__(self):
+    #     return f"Flip #{self.flip_number} at {self.flipped_at.strftime('%Y-%m-%d %H:%M:%S')}"
     
     
 # DB model only for frontend

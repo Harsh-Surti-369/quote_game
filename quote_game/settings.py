@@ -28,7 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-    "192.168.201.155",  # your local IP
+    "192.168.127.8",
+    "192.168.201.155",
 ]
 # Application definition
 
@@ -89,12 +90,12 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432', 
     },
-    'frontend': {
+    'lap1end': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'hpys_local',
         'USER': 'postgres',
         'PASSWORD': '0000',
-        'HOST': '192.168.201.131',
+        'HOST': '192.168.127.95',
         'PORT': '5432', 
     }
 }
@@ -144,6 +145,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 INTERNAL_IPS = [
     '127.0.0.1',
+    '192.168.127.8',
 ]
 
 # cors settings
